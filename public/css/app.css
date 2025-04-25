@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.8rem 0;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFFFFF !important;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link {
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:hover span {
+    width: 100% !important;
+}
+
+.nav-link i {
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover i {
+    transform: scale(1.2);
+}
+
+.btn-light {
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+}
+
+.btn-light:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Home Page */
+.jumbotron {
+    background-color: #fdf6e3;
+    padding: 4rem 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.card {
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Product Cards */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    color: #e67e22;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #666;
+}
+
+/* Cart */
+.table img {
+    max-width: 80px;
+    height: auto;
+}
+
+.btn-primary {
+    background-color: #e67e22;
+    border-color: #e67e22;
+}
+
+.btn-primary:hover {
+    background-color: #d35400;
+    border-color: #d35400;
+}
+
+.btn-outline-primary {
+    color: #e67e22;
+    border-color: #e67e22;
+}
+
+.btn-outline-primary:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
+}
+
+/* Footer */
+footer {
+    background-color: #fdf6e3 !important;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 2rem 1rem;
+    }
+    
+    .card-img-top {
+        height: 150px;
+    }
+} 
