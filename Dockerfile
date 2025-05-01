@@ -16,7 +16,7 @@ RUN apk add --no-cache \
     npm
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo pdo_pgsql mbstring exif pcntl bcmath gd
+RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 
 # Configure PHP
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
@@ -49,7 +49,13 @@ RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache} \
 
 # Copy .env file and generate key
 COPY .env.example .env
-RUN php artisan key:generate --force
+RUN sed -i 's/DB_CONNECTION=sqlite/DB_CONNECTION=mysql/g' .env \
+    && sed -i 's/DB_HOST=127.0.0.1/DB_HOST=${DB_HOST}/g' .env \
+    && sed -i 's/DB_PORT=3306/DB_PORT=${DB_PORT}/g' .env \
+    && sed -i 's/DB_DATABASE=laravel/DB_DATABASE=${DB_DATABASE}/g' .env \
+    && sed -i 's/DB_USERNAME=root/DB_USERNAME=${DB_USERNAME}/g' .env \
+    && sed -i 's/DB_PASSWORD=/DB_PASSWORD=${DB_PASSWORD}/g' .env \
+    && php artisan key:generate --force
 
 # Set production environment
 ENV APP_ENV=production
