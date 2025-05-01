@@ -42,8 +42,9 @@ RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache}
 RUN chmod -R 775 storage bootstrap/cache
 RUN chown -R www-data:www-data storage bootstrap/cache
 
-# Generate application key
-RUN php artisan key:generate
+# Copy .env file and generate key
+COPY .env.example .env
+RUN php artisan key:generate --force
 
 # Expose port 80
 EXPOSE 80
