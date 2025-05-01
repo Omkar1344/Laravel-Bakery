@@ -7,6 +7,7 @@ RUN apk add --no-cache \
     postgresql-dev \
     libpng-dev \
     libxml2-dev \
+    oniguruma-dev \
     zip \
     unzip \
     git \
