@@ -33,9 +33,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 # Install and build Node.js dependencies
 RUN npm install && npm run build
 
-# Copy nginx configuration
-RUN mkdir -p /etc/nginx/conf.d
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Configure Nginx
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Create storage directory and set permissions
 RUN mkdir -p /var/www/html/storage/framework/{sessions,views,cache}
